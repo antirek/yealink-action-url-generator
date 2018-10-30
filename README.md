@@ -2,5 +2,5 @@
 
 Yealink Action URL generator online 
 
-https://github.com/antirek/yealink-action-url-generator
+see https://antirek.github.io/yealink-action-url-generator/
 
