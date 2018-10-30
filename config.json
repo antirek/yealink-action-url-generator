@@ -1,5 +1,6 @@
 {
   "locals": {
     "title": "Yealink Action URL generator online"
-  }
+  },
+  "output": "./docs"
 }
