@@ -1,0 +1,252 @@
+html
+  head
+    title= title
+    script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+  body
+    h3 Yealink Action URL builder
+    div#app 
+      p
+        span base url 
+        input(v-model="host")
+      p 
+        span mac 
+        input(type="checkbox" id="checkbox" v-model="mac" true-value="&mac=$mac" false-value="")
+        span ip
+        input(type="checkbox" id="checkbox" v-model="ip" true-value="&ip=$ip" false-value="")
+        span model
+        input(type="checkbox" id="checkbox" v-model="model" true-value="&model=$model" false-value="")
+        span firmware
+        input(type="checkbox" id="checkbox" v-model="firmware" true-value="&firmware=$firmware" false-value="")
+        span active_url
+        input(type="checkbox" id="checkbox" v-model="active_url" true-value="&active_url=$active_url" false-value="")
+        span active_user
+        input(type="checkbox" id="checkbox" v-model="active_user" true-value="&active_user=$active_user" false-value="")
+        span active_host
+        input(type="checkbox" id="checkbox" v-model="active_host" true-value="&active_host=$active_host" false-value="")
+      p
+        span local
+        input(type="checkbox" id="checkbox" v-model="local" true-value="&local=$local" false-value="")
+        span remote
+        input(type="checkbox" id="checkbox" v-model="remote" true-value="&remote=$remote" false-value="")
+        span display_local
+        input(type="checkbox" id="checkbox" v-model="display_local" true-value="&display_local=$display_local" false-value="")
+        span display_remote
+        input(type="checkbox" id="checkbox" v-model="display_remote" true-value="&display_remote=$display_remote" false-value="")
+        span call_id
+        input(type="checkbox" id="checkbox" v-model="call_id" true-value="&call_id=$call_id" false-value="")
+        span callerID
+        input(type="checkbox" id="checkbox" v-model="callerID" true-value="&callerID=$callerID" false-value="")
+        span calledNumber
+        input(type="checkbox" id="checkbox" v-model="calledNumber" true-value="&calledNumber=$calledNumber" false-value="")
+
+      p
+        b setup_completed 
+        a(href="#" onclick="copyToClipboard('setup_completed')") copy 
+        span#setup_completed {{ host }}?event=setup_completed{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b registered 
+        a(href="#" onclick="copyToClipboard('registered')") copy 
+        span#registered {{ host }}?event=registered{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b unregistered 
+        a(href="#" onclick="copyToClipboard('unregistered')") copy 
+        span#unregistered {{ host }}?event=unregistered{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b register_failed 
+        a(href="#" onclick="copyToClipboard('register_failed')") copy 
+        span#register_failed {{ host }}?event=register_failed{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b off_hook 
+        a(href="#" onclick="copyToClipboard('off_hook')") copy 
+        span#off_hook {{ host }}?event=off_hook{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b on_hook 
+        a(href="#" onclick="copyToClipboard('on_hook')") copy 
+        span#on_hook {{ host }}?event=on_hook{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b incoming_call 
+        a(href="#" onclick="copyToClipboard('incoming_call')") copy 
+        span#incoming_call {{ host }}?event=incoming_call{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b outgoing_call 
+        a(href="#" onclick="copyToClipboard('outgoing_call')") copy 
+        span#outgoing_call {{ host }}?event=outgoing_call{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b call_established 
+        a(href="#" onclick="copyToClipboard('call_established')") copy 
+        span#call_established {{ host }}?event=call_established{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b dnd_on 
+        a(href="#" onclick="copyToClipboard('dnd_on')") copy 
+        span#dnd_on {{ host }}?event=dnd_on{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b dnd_off 
+        a(href="#" onclick="copyToClipboard('dnd_off')") copy 
+        span#dnd_off {{ host }}?event=dnd_off{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b always_fwd_on 
+        a(href="#" onclick="copyToClipboard('always_fwd_on')") copy 
+        span#always_fwd_on {{ host }}?event=always_fwd_on{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p 
+        b always_fwd_off 
+        a(href="#" onclick="copyToClipboard('always_fwd_off')") copy 
+        span#always_fwd_off {{ host }}?event=always_fwd_off{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b busy_fwd_on 
+        a(href="#" onclick="copyToClipboard('busy_fwd_on')") copy 
+        span#busy_fwd_on {{ host }}?event=busy_fwd_on{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b busy_fwd_off 
+        a(href="#" onclick="copyToClipboard('busy_fwd_off')") copy 
+        span#busy_fwd_off {{ host }}?event=busy_fwd_off{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b no_answer_fwd_on 
+        a(href="#" onclick="copyToClipboard('no_answer_fwd_on')") copy 
+        span#no_answer_fwd_on {{ host }}?event=no_answer_fwd_on{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b no_answer_fwd_off 
+        a(href="#" onclick="copyToClipboard('no_answer_fwd_off')") copy 
+        span#no_answer_fwd_off {{ host }}?event=no_answer_fwd_off{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b transfer_call 
+        a(href="#" onclick="copyToClipboard('transfer_call')") copy 
+        span#transfer_call {{ host }}?event=transfer_call{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b blind_transfer_call 
+        a(href="#" onclick="copyToClipboard('blind_transfer_call')") copy 
+        span#blind_transfer_call {{ host }}?event=blind_transfer_call{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b attended_transfer_call 
+        a(href="#" onclick="copyToClipboard('attended_transfer_call')") copy 
+        span#attended_transfer_call {{ host }}?event=attended_transfer_call{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b hold 
+        a(href="#" onclick="copyToClipboard('hold')") copy 
+        span#hold {{ host }}?event=hold{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b unhold 
+        a(href="#" onclick="copyToClipboard('unhold')") copy 
+        span#unhold {{ host }}?event=unhold{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b held 
+        a(href="#" onclick="copyToClipboard('held')") copy 
+        span#held {{ host }}?event=held{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b unheld 
+        a(href="#" onclick="copyToClipboard('unheld')") copy 
+        span#unheld {{ host }}?event=unheld{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b mute 
+        a(href="#" onclick="copyToClipboard('mute')") copy 
+        span#mute {{ host }}?event=mute{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b unmute 
+        a(href="#" onclick="copyToClipboard('unmute')") copy 
+        span#unmute {{ host }}?event=unmute{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b missed_call 
+        a(href="#" onclick="copyToClipboard('missed_call')") copy 
+        span#missed_call {{ host }}?event=missed_call{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b call_terminated 
+        a(href="#" onclick="copyToClipboard('call_terminated')") copy 
+        span#call_terminated {{ host }}?event=call_terminated{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b busy_to_idle 
+        a(href="#" onclick="copyToClipboard('busy_to_idle')") copy 
+        span#busy_to_idle {{ host }}?event=busy_to_idle{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b idle_to_busy 
+        a(href="#" onclick="copyToClipboard('idle_to_busy')") copy 
+        span#idle_to_busy {{ host }}?event=idle_to_busy{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b ip_change 
+        a(href="#" onclick="copyToClipboard('ip_change')") copy 
+        span#ip_change {{ host }}?event=ip_change{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b forward_incoming_call 
+        a(href="#" onclick="copyToClipboard('forward_incoming_call')") copy 
+        span#forward_incoming_call {{ host }}?event=forward_incoming_call{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b forward_incoming_call 
+        a(href="#" onclick="copyToClipboard('forward_incoming_call')") copy 
+        span#forward_incoming_call {{ host }}?event=reject_incoming_call{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b answer_new_incoming_call 
+        a(href="#" onclick="copyToClipboard('answer_new_incoming_call')") copy 
+        span#answer_new_incoming_call {{ host }}?event=answer_new_incoming_call{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b transfer_finished 
+        a(href="#" onclick="copyToClipboard('transfer_finished')") copy 
+        span#transfer_finished {{ host }}?event=transfer_finished{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b transfer_failed 
+        a(href="#" onclick="copyToClipboard('transfer_failed')") copy 
+        span#transfer_failed {{ host }}?event=transfer_failed{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b setup_autop_finish 
+        a(href="#" onclick="copyToClipboard('setup_autop_finish')") copy 
+        span#setup_autop_finish {{ host }}?event=setup_autop_finish{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b call_waiting_on 
+        a(href="#" onclick="copyToClipboard('call_waiting_on')") copy 
+        span#call_waiting_on {{ host }}?event=call_waiting_on{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b call_waiting_off 
+        a(href="#" onclick="copyToClipboard('call_waiting_off')") copy 
+        span#call_waiting_off {{ host }}?event=call_waiting_off{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b headset 
+        a(href="#" onclick="copyToClipboard('headset')") copy 
+        span#headset {{ host }}?event=headset{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b handfree 
+        a(href="#" onclick="copyToClipboard('handfree')") copy 
+        span#handfree {{ host }}?event=handfree{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b cancel_callout 
+        a(href="#" onclick="copyToClipboard('cancel_callout')") copy 
+        span#cancel_callout {{ host }}?event=cancel_callout{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b remote_busy 
+        a(href="#" onclick="copyToClipboard('remote_busy')") copy 
+        span#remote_busy {{ host }}?event=remote_busy{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+      p
+        b call_remote_canceled 
+        a(href="#" onclick="copyToClipboard('call_remote_canceled')") copy 
+        span#call_remote_canceled {{ host }}?event=call_remote_canceled{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
+
+  script.
+    var app = new Vue({
+      el: '#app',
+      data: {
+        host: 'http://192.168.1.1',
+        mac: '',
+        ip: '',
+        model: '',
+        firmware: '',
+        active_url: '',
+        active_user: '',
+        active_host: '',
+        local: '',
+        remote: '',
+        display_local: '',
+        display_remote: '',
+        call_id: '',
+        callerID: '',
+        calledNumber: ''
+      }
+    })
+
+    const copyToClipboard = (selector) => {
+      var str = document.getElementById(selector).innerText;
+      const el = document.createElement('textarea');
+      el.value = str;
+      el.setAttribute('readonly', '');
+      el.style.position = 'absolute';
+      el.style.left = '-9999px';
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+    };
