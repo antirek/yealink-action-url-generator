@@ -3,41 +3,41 @@ html
     title= title
     script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
   body
-    h3 Yealink Action URL builder
+    h3 Yealink Action URL generator
     div#app 
       p
         span base url 
-        input(v-model="host")
+        input(v-model="host" @change="change" @input="change" id="host")
       p 
         span mac 
-        input(type="checkbox" id="checkbox" v-model="mac" true-value="&mac=$mac" false-value="")
+        input(type="checkbox" @change="change" id="mac" v-model="mac" true-value="&mac=$mac" false-value="")
         span ip
-        input(type="checkbox" id="checkbox" v-model="ip" true-value="&ip=$ip" false-value="")
+        input(type="checkbox" @change="change" id="ip" v-model="ip" true-value="&ip=$ip" false-value="")
         span model
-        input(type="checkbox" id="checkbox" v-model="model" true-value="&model=$model" false-value="")
+        input(type="checkbox" @change="change" id="model" v-model="model" true-value="&model=$model" false-value="")
         span firmware
-        input(type="checkbox" id="checkbox" v-model="firmware" true-value="&firmware=$firmware" false-value="")
+        input(type="checkbox" @change="change" id="firmware" v-model="firmware" true-value="&firmware=$firmware" false-value="")
         span active_url
-        input(type="checkbox" id="checkbox" v-model="active_url" true-value="&active_url=$active_url" false-value="")
+        input(type="checkbox" @change="change" id="active_url" v-model="active_url" true-value="&active_url=$active_url" false-value="")
         span active_user
-        input(type="checkbox" id="checkbox" v-model="active_user" true-value="&active_user=$active_user" false-value="")
+        input(type="checkbox" @change="change" id="active_user" v-model="active_user" true-value="&active_user=$active_user" false-value="")
         span active_host
-        input(type="checkbox" id="checkbox" v-model="active_host" true-value="&active_host=$active_host" false-value="")
+        input(type="checkbox" @change="change" id="active_host" v-model="active_host" true-value="&active_host=$active_host" false-value="")
       p
         span local
-        input(type="checkbox" id="checkbox" v-model="local" true-value="&local=$local" false-value="")
+        input(type="checkbox" @change="change" id="local" v-model="local" true-value="&local=$local" false-value="")
         span remote
-        input(type="checkbox" id="checkbox" v-model="remote" true-value="&remote=$remote" false-value="")
+        input(type="checkbox" @change="change" id="remote" v-model="remote" true-value="&remote=$remote" false-value="")
         span display_local
-        input(type="checkbox" id="checkbox" v-model="display_local" true-value="&display_local=$display_local" false-value="")
+        input(type="checkbox" @change="change" id="display_local" v-model="display_local" true-value="&display_local=$display_local" false-value="")
         span display_remote
-        input(type="checkbox" id="checkbox" v-model="display_remote" true-value="&display_remote=$display_remote" false-value="")
+        input(type="checkbox" @change="change" id="display_remote" v-model="display_remote" true-value="&display_remote=$display_remote" false-value="")
         span call_id
-        input(type="checkbox" id="checkbox" v-model="call_id" true-value="&call_id=$call_id" false-value="")
+        input(type="checkbox" @change="change" id="call_id" v-model="call_id" true-value="&call_id=$call_id" false-value="")
         span callerID
-        input(type="checkbox" id="checkbox" v-model="callerID" true-value="&callerID=$callerID" false-value="")
+        input(type="checkbox" @change="change" id="callerID" v-model="callerID" true-value="&callerID=$callerID" false-value="")
         span calledNumber
-        input(type="checkbox" id="checkbox" v-model="calledNumber" true-value="&calledNumber=$calledNumber" false-value="")
+        input(type="checkbox" @change="change" id="calledNumber" v-model="calledNumber" true-value="&calledNumber=$calledNumber" false-value="")
 
       p
         b setup_completed 
@@ -217,26 +217,56 @@ html
         span#call_remote_canceled {{ host }}?event=call_remote_canceled{{ mac }}{{ ip }}{{ model }}{{ firmware }}{{ active_url }}{{ active_user }}{{ active_host }}{{ local }}{{ remote }}{{ display_local }}{{ display_remote }}{{ call_id }}{{ callerID }}{{ calledNumber }}
 
   script.
-    var app = new Vue({
-      el: '#app',
-      data: {
-        host: 'http://192.168.1.1',
-        mac: '',
-        ip: '',
-        model: '',
-        firmware: '',
-        active_url: '',
-        active_user: '',
-        active_host: '',
-        local: '',
-        remote: '',
-        display_local: '',
-        display_remote: '',
-        call_id: '',
-        callerID: '',
-        calledNumber: ''
-      }
-    })
+
+    document.addEventListener("DOMContentLoaded", function() {
+      let host = localStorage.getItem('host') || 'http://192.168.1.1/';
+      let mac = localStorage.getItem('mac') === 'true' ? '&mac=$mac' : '';
+      let ip = localStorage.getItem('ip') === 'true' ? '&ip=$ip' : '';
+      let model = localStorage.getItem('model') === 'true' ? '&model=$model' : '';
+      let firmware = localStorage.getItem('firmware') === 'true' ? '&firmware=$firmware' : '';
+      let active_url = localStorage.getItem('active_url') === 'true' ? '&active_url=$active_url' : '';
+      let active_user = localStorage.getItem('active_user') === 'true' ? '&active_user=$active_user' : '';
+      let active_host = localStorage.getItem('active_host') === 'true' ? '&active_host=$active_host' : '';
+      let local = localStorage.getItem('local') === 'true' ? '&local=$local' : '';
+      let remote = localStorage.getItem('remote') === 'true' ? '&remote=$remote' : '';
+      let display_local = localStorage.getItem('display_local') === 'true' ? '&display_local=$display_local' : '';
+      let display_remote = localStorage.getItem('display_remote') === 'true' ? '&display_remote=$display_remote' : '';
+      let call_id = localStorage.getItem('call_id') === 'true' ? '&call_id=$call_id' : '';
+      let callerID = localStorage.getItem('callerID') === 'true' ? '&callerID=$callerID' : '';
+      let calledNumber = localStorage.getItem('calledNumber') === 'true' ? '&calledNumber=$calledNumber' : '';
+      
+      let app = new Vue({
+        el: '#app',
+        data: {
+          host: host,
+          mac: mac,
+          ip: ip,
+          model: model,
+          firmware: firmware,
+          active_url: active_url,
+          active_user: active_user,
+          active_host: active_host,
+          local: local,
+          remote: remote,
+          display_local: display_local,
+          display_remote: display_remote,
+          call_id: call_id,
+          callerID: callerID,
+          calledNumber: calledNumber
+        },
+        methods: {
+          change: function (evt) {
+            let value = evt.target.value;
+            if (evt.target.type === 'checkbox') {
+              value = evt.target.checked
+            }
+            //console.log('id', evt.target.id);
+            //console.log('value', value);
+            localStorage.setItem(evt.target.id, value);
+          }
+        }
+      });
+    });
 
     const copyToClipboard = (selector) => {
       var str = document.getElementById(selector).innerText;
